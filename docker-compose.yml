@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  flask-app:
+    build: .
+    command: ["./wait-for-it.sh", "mysql-db:3306", "--", "python", "app.py"]
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mysql-db
+
+  mysql-db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: simrathsql
+      MYSQL_DATABASE: logintest
+      MYSQL_USER: user1
+      MYSQL_PASSWORD: simrathuser1
+    ports:
+      - "3306:3306"

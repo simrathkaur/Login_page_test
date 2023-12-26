@@ -177,3 +177,5 @@ docker pull yourusername/flask_app_image:latest
 docker pull yourusername/mysql:latest
 ```
 
+Problems faced: making docker container for mysql and connecting to flask
+
